@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=924, height=630" initial-scale=1"/>
+<title>Fossil Dig</title>
+<link href="assets/css/font.css" rel="stylesheet"/>
+<link href="assets/css/template.css" rel="stylesheet"/>
+<link href="assets/css/actstyle.css" rel="stylesheet"/>
+<link href="assets/scrollbar/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+<script src="assets/js/jquery-2.0.0.min.js"></script>
+<script src="assets/js/rotate.js"></script>
+<script src="assets/js/jquery-ui.min.js"></script>
+<script src="assets/js/jquery.ui.touch-punch.min.js"></script>
+<script src="assets/js/html2canvas_0.4.1.js"></script>
+<script src="assets/js/data.js"></script>
+<script src="assets/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/script.js"></script>
+<script src="assets/js/eventjs.js"></script>
+<script src="assets/js/activity.js"></script>
+<script src="assets/js/slider.js"></script>
+<script src="assets/js/jquery.preload.js"></script>
+<script>
+	$(function(){
+		var imgs = [
+			'assets/edge/images/bg_blur.png',
+			'assets/images/activity/bg.png',
+			'assets/images/activity/axe_animation_sprite.png',
+			'assets/images/activity/axe.png',
+			'assets/images/activity/lab_a_3.png',
+			'assets/images/activity/lab_e_1.png',
+			'assets/images/activity/lab_e_2.png',
+			'assets/images/activity/lab_e_3.png',
+			'assets/images/activity/lab_e_4.png',
+			'assets/images/activity/lab_e_5.png',
+		    'assets/images/template/info_icon.png',
+			'assets/images/template/close.png',
+			'assets/images/template/rslider.png',
+			'assets/images/template/audio_icon_normal.png',
+			'assets/images/template/audio_icon_play.png',
+			'assets/images/template/camera_icon.png',
+			'assets/images/template/camera_icon_disabled.png',
+			'assets/images/template/left_slider_act.png',
+			'assets/images/template/left_slider_deact.png',
+			'assets/images/help/audio_icon.png',
+		    'assets/images/template/lslider.png',
+			'assets/images/template/ok_btn.png',
+			'assets/images/template/ok_btn_active.png',
+			'assets/images/template/ok_btn_clkd.png',			
+			'assets/images/template/reset-01.png',			
+			'assets/images/template/right_slider_act.png',
+			'assets/images/template/right_slider_deact.png',
+		    'assets/images/activity/12thframe.png',
+			'assets/images/activity/41thframe.png',
+			'assets/images/activity/74thframe.png',
+			'assets/images/activity/106thframe.png',
+			'assets/images/activity/135thframe.png',
+			'assets/images/activity/165thframe.png',
+			'assets/images/activity/198thframe.png',
+            'assets/images/activity/brush.png',
+			'assets/images/activity/close.png',
+		    'assets/images/activity/img_a_3.png',
+			'assets/images/activity/img_e_1.png',
+			'assets/images/activity/img_e_2.png',
+			'assets/images/activity/img_e_3.png',
+			'assets/images/activity/img_e_4.png',
+			'assets/images/activity/img_e_5.png',
+ 		    'assets/images/activity/mic_e_1.png',
+			'assets/images/activity/mic_e_2.png',
+			'assets/images/activity/mic_e_3.png',
+			'assets/images/activity/mic_e_4.png',
+			'assets/images/activity/mic_e_5.png',
+  	        'assets/images/activity/mic_a_3.png',
+			'assets/images/activity/labbg.png',
+			'assets/images/activity/manBrush.png',
+			'assets/images/activity/manTimer.png',
+			'assets/images/activity/manTimerLast.png',
+			'assets/images/activity/man.png',
+			'assets/images/activity/ok_btn.png',
+			'assets/images/activity/timer.png',
+			'assets/images/help/camera_icon.png',
+			'assets/images/help/info_icon.png',
+			'assets/edge/images/axe_animation_sprite.png',
+			'assets/edge/images/manTimer.png',
+			'assets/edge/images/manBrush.png',
+			'assets/edge/images/bg.png'
+			
+		 ];		
+		$.preload(imgs, {
+		    each: function (count) {			
+				
+				
+		    },
+		    all: function () {									
+				$('.screenArea').css('visibility','visible');				
+			    $('.screenload').css('display','none');
+			    $('.preloaderImg').css('display','none');					
+		    }
+		});
+	});
+</script>
+</head>
+<body>
+<div class="container">
+ 	<div class="header">
+    	<span class="activity_title"></span>
+		<span class="infoIcon"></span>
+        <span id="rtxt_1" name="welcome" class="rtxt welcome">Welcome</span>
+        <span id="rtxt_2" name="explore" class="rtxt explore">Explore</span>
+        <span id="rtxt_3" name="activity" class="rtxt activity">Activity</span>
+    </div>
+	<img src="assets/edge/images/bg_blur.png" width="924px" height="588px" style="position: absolute;top:42px;z-index:0"/> 
+	<div class="screenArea" audio-mode="off">
+		<!-- <div class="EventNotAllowed"></div> -->
+		<div class="sliderContain"></div>				
+		<!-- Welcome Page -->
+		
+		<div id="welcome" class="workArea">	
+		<iframe src="assets/edge/index.html" id="myFrame" width="924" height="588" scroll="no" style="border:none"></iframe>		
+		</div>
+		<div class="bubbleDiv" ></div>
+		<!--Audio Div -->
+		
+		<div class="expDiv">	
+			<div class="headerDrag"><div>&equiv;</div></div>
+				<div class="expChild">			
+					 <div class="expimgcont" id="expimgcont" style="display: block;">
+						<div id="popupImages11" >
+						<img class='popupImages' alt="popupImages" width="180px" draggable="false"  src="assets/images/activity/test.png">
+					   </div> 
+					</div> 
+					<div class='audioTextDiv'>
+						<div class='audioIconClass'>
+							<img src="assets/images/template/audio_icon_normal.png" alt="audioButton" class="expDivIcon expAudio" audio-state="pause" />
+						</div>
+						<p class="expPara" >
+							Test...
+						</p>
+					</div>
+				
+					
+				</div>
+				<div class="arrowBar">
+					<img id="arrowimg" alt="arrowimg" class="arrow1" src ="assets/images/template/right_slider_act.png"/> 
+				</div>
+				<div class="expFoodBar">
+					<div class="PreBtnSlider navSliderBtn" data-attend="0"></div>
+					<span style="width:42px"></span>
+					<div class="nxtBtnSlider navSliderBtn" data-attend="0"></div>
+				</div> 
+			<img src="assets/images/template/lslider.png" alt="lsliderimg" class="activeSlider" alt="Slide Animation" />
+		</div>
+		<div id="digSiteDummy" ></div>
+		<div id="labdummy1" ></div>
+		<div id="labhilight"  class="glowEffect" ></div>
+	    <!--Explore Page -->
+		<div id="explore" class="workArea" data-class="explore" title="Dig Site" >
+		</div>
+		  <div id="totaldiv">
+		  <div class="cursorRestrict"></div>
+			<div class="axeDragContainer"></div>
+			<audio id ='audioId'>
+			  <source src="assets/audio/brush.mp3" type="audio/mp3">
+			  
+			</audio>
+			<div id="dig" class="digclass" >
+				<!-- <div id="headerval"></div> -->
+				<div id="digback" class="diclass">
+				<div id="dragimg"  class="dragval"></div>
+				</div>
+				<!-- <div id="dummydiv"></div>   -->
+				<div class="fossilarea"></div>	
+				<div class="svgimg">
+			    <!--   <img id="sample1"  class="maskbg1" src ="assets/images/activity/layer_4.png"/>	   --> 
+			    <img class='maskLayer maskimgl' id="imageMask_0" src="assets/images/activity/layer_0.png" width="924" alt="l1" style="opacity:0.8; display:none; top:127px;" alt="maskimg_0"  />
+				<img class='maskLayer maskimgl'  alt="maskimg_1" id="imageMask_1" src="assets/images/activity/layer_1.png" width="924" alt="l1" style="opacity:0.8; display:none; top:223px;"/>
+				<img class='maskLayer maskimgl' alt="maskimg_2" id="imageMask_2" src="assets/images/activity/layer_2.png" width="924" alt="l1" style="opacity:0.8; display:none; top:290px;"/>
+				<img class='maskLayer maskimgl' alt="maskimg_3" id="imageMask_3" src="assets/images/activity/layer_3.png" width="924" alt="l1" style="opacity:0.8; display:none; top:355px;"/>
+				<img class='maskLayer maskimgl' alt="maskimg_4" id="imageMask_4" src="assets/images/activity/layer_4.png" width="924" alt="l1" style="opacity:0.8; display:none; top:431px;"/>  
+				</div>
+				<img class='highlightglow' id="glow_0" alt="glowimg_0" src="assets/images/activity/layerglow_0.png" style="display:none" alt="l1" /> 
+			    <img class='highlightglow' id="glow_1" alt="glowimg_1" src="assets/images/activity/layerglow_0.png" alt="l1" style="display:none;"/>
+				<img class='highlightglow' id="glow_2" alt="glowimg_2" src="assets/images/activity/layerglow_0.png"  width="934" alt="l1" style="opacity:0.8;display:none;top:290px;"/>
+				<img class='highlightglow' id="glow_3" alt="glowimg_3" src="assets/images/activity/layerglow_0.png"  width="934" alt="l1" style="opacity:0.8;display:none;top:355px;"/>
+				<img class='highlightglow' id="glow_4" alt="glowimg_4" src="assets/images/activity/layerglow_0.png"  width="934" alt="l1" style="opacity:0.8;display:none;top:431px;"/>
+				<!-- <img class='highlightglow' id="glow_0" src="assets/images/activity/layerglow_0.png"  alt="l1" style="opacity:0.8;"> -->
+				<div id="digani" class="diganimation" ></div>
+				<div id="resetbtn" class="button">Reset</div> 
+				<div id="popdiv" class="popupval">
+				You found a fossil! Let's send it to the lab for cleaning and analysis.
+				<img id="okimg" alt="okimg" src="assets/images/activity/ok_btn.png" />
+				</div>
+				<div id="finalpopup">Congrats! You found all <span id="finspan1">four</span> of the fossils in only <span id="finspan2">18</span> digs! Now head to the Lab to identify and analyze the fossils. 
+				 <img alt="popclose" src="assets/images/activity/close.png" id="popclose" class=""/>
+				</div>
+				<div id="digdummy" class=""></div>
+				<div id="footerdummy1"></div> 
+				<div id="digfuldummy"></div>
+				<div id="digbackdummy"></div>
+		   </div>	
+		   <div id="lab" class="labclass" >	
+		   <div id="timeback" data-attr="timer" class='commonDrag'>
+			   <div  id="timer_0" class="timer commnimg"  dataval="timer" ></div>
+			   <div  id="timer_1" class="timer commnimg"  dataVal="timer" ></div> 
+		   </div>
+		   <div id="brushback" data-attr="brush" class='commonDrag'>
+				<div  id="brush_0"  class="brush commnimg" dataval="brush" ></div>
+				<div  id="brush_1"  class="brush commnimg" dataval="brush" ></div> 
+		   </div>
+		   <div id="brushbackhilight" class="highlight"></div>
+		   <div id="timebackhilight" class="highlight"></div>
+		   <div  id="man_1" class="man"  ></div> 
+		   <div  id="man_2" class="man"  ></div> 
+		   <!-- <div class="brushAnim" style = 'visibility:hidden;'></div>
+		   <div class="clockAnim" style = 'visibility:hidden;'></div> -->
+		   <div id="footer1" class="footerval" >
+			   <div id="resetbtn1" class="button">Reset</div>
+			   <div id="footermark">Found: <span id="spanfound">0</span><span id="footspan1">Identified: <span id="spanidentific">0</span></span><span id="footspan2">Analyzed: <span id="spananalyzed">0</span></span></div> 
+		   </div>
+		  <div  id="tableimg" ></div>
+		  <div  id="microscopeimg" ></div>
+		   <div id="popfinished">Congratulations! You found, identified, and analyzed all five fossils. 
+		   </div>
+		   <div id="resetpopup" class="highlight"></div>
+		   <div id="brushbackdummy"></div>  
+		  <div id="timebackdummy"></div>
+		 <!--  <div id="labsquaredummy"></div> -->
+		 <div id="activitytotaldummy" >
+		 
+		 </div>
+		  </div> 
+		  </div>
+		<!--Right Tab Menu -->
+		<div class="Modes" style='display:none;'>
+			<div class="rightGrpBtn">	
+				<div class="rightlabel1 labelRight labelArrow" id="rightlabel_1"></div>			
+				<div class="rightlabel2 labelRight" id="rightlabel_2"></div>
+			</div>
+		</div>
+		
+		<!--Menu Tab  -->
+		<div class="highlightTab">
+			<div class="button chheader1" bubble="monterey" id="ch1" data-show="1"></div>
+			<div class="button chheader2" bubble="amazon" id="ch2" data-show="2"></div>
+		</div>
+		<!--Activity Page -->
+		<div id="activity" class="workArea" data-class="activity"  style="display:none">
+		</div>   
+		<!--Help window -->
+		<div class="helpwindow">
+			<div class="helpinner">
+				<!-- <div class="helpBlockTopWhite" style="z-index: 9;height:10px;width:555px;position:absolute;background:white;top:152px"></div> -->
+			    <div class="help1" data-class="lclass">Background Information</div>
+				<div class="help2" data-class="rclass">Help</div>
+				<div class="helpBlock1"></div>
+				<div class="helpBlock2"></div>
+				<img src="assets/images/template/close.png" alt="closeButton" class="closeIcon"/>
+				<!-- <div class="helpBlockBotWhite" style="z-index: 9;height:10px;width:555px;position:absolute;background:white;bottom:104px"></div> -->
+			</div>
+		</div>	
+	</div>
+	<div style="position:absolute;width:924px;height:588px;top:42px;background:rgba(0,0,0,0.5)" class="screenload"></div>
+	<img class="preloaderImg" alt="preloaderimg" src="assets/images/template/preloader2.gif" width="62px" style="position:absolute;left:0;top:0; right:0; bottom:0; margin:auto;z-index:1000;display:block"/>
+	<img src="assets/images/template/camera_icon.png" alt="screenCapture" class="screenIcon"/>	
+	</div>
+</body>
+</html>
+
